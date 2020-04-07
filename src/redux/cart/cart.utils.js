@@ -1,10 +1,13 @@
 export const addItemToCart = (cartItems, cartItemToAdd) => {
-  const existingCartItem = cartItems.find(
-    cartItem => cartItem.id === cartItemToAdd.id
-  );
+  let existingCartItem = false;
+  cartItems.forEach((cartItem) => {
+    if(!existingCartItem && cartItem.id === cartItemToAdd.id) {
+      existingCartItem = true;
+    }
+  });
   if (existingCartItem) {
     console.log('exists');
-    return cartItems.map(cartItem =>
+    return cartItems.map((cartItem) =>
       cartItem.id === cartItemToAdd.id
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
         : cartItem
