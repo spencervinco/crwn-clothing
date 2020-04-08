@@ -9,7 +9,7 @@ const CartDropdown = ({ cartItems }) => (
   <div className='cart-dropdown'>
     <div className='cart-items'>
       {cartItems.map((cartItem) => (
-        <CartItem key={cartItem.Id} item={cartItem} />
+        <CartItem key={cartItem.id} item={cartItem} />
       ))}
     </div>
     <CustomButton>GO TO CHECKOUT</CustomButton>
@@ -17,7 +17,7 @@ const CartDropdown = ({ cartItems }) => (
 );
 
 const mapStateToProps = ({ cart: { cartItems } }) => ({
-  cartItems,
+  cartItems
 });
 
 export default connect(mapStateToProps)(CartDropdown);
