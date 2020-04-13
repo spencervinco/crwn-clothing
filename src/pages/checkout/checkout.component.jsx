@@ -30,13 +30,11 @@ const CheckoutPage = ({ cartItems, total }) => (
         <span>Remove</span>
       </div>
     </div>
-    <div className='cart-items'>
-      {cartItems.length ? (
-        cartItems.map((cartItem) => <CheckoutItem key={cartItem.Id} cartItem={cartItem} />)
-      ) : (
-          <span className='empty-message'>Your cart is empty</span>
-        )}
-    </div>
+    {cartItems.length ? (
+      cartItems.map((cartItem) => <CheckoutItem key={cartItem.Id} cartItem={cartItem} />)
+    ) : (
+        <span className='empty-message'>Your cart is empty</span>
+      )}
     <div className="total">{`TOTAL: $${total}`}</div>
   </div>
 );
